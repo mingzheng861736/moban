@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多人在线聊天</title>
+</head>
+<body>
+发送一句吧：<input id="text" type="text">
+<button onclick="send()">发送消息</button>
+<button onclick="closeWebSocket()">退出多人聊天</button>
+<hr>
+<hr>
+<input id="text2" type="text">
+<button onclick="send2()">发送消息</button>
+<div id="message"></div>
+================================================================
+<script type="text/javascript">
+    var websocket=new WebSocket("ws://localhost:8080/websocket/server");
+    //有消息从服务器端发送过来
+    websocket.onmessage=function (event){
+        setMessageInnerHTML(event.data);
+    }
+    function setMessageInnerHTML(innerHTML){
+        document.getElementById("message").innerHTML+=innerHTML+'<br/>'
+    }
+    function send(){
+        var message=document.getElementById('text').value;
+        websocket.send(message);
+    }
+    function send2(){
+        var message=document.getElementById('text').value;
+       var message1="message:"+message+"type:"
+        websocket.send(message1);
+    }
+</script>
+</body>
+</html>
