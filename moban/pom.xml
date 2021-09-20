@@ -20,7 +20,7 @@
         <java.version>1.8</java.version>
 
         <bar.version>0.0.1-SNAPSHOT</bar.version>
-        <shiro.version>1.4.0</shiro.version>
+        <shiro.version>1.8.0</shiro.version>
         <commons-codec.version>1.11</commons-codec.version>
         <mybatis-plus-boot-starter.version>3.0-RC1</mybatis-plus-boot-starter.version>
         <commons-lang3.version>3.4</commons-lang3.version>
